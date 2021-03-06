@@ -15,7 +15,7 @@ jobs:
     - name: 'Building...'
       uses: reuixiy/hugo-deploy@v1
       env:
-        DEPLOY_REPO: lusuzi/instropect
+        DEPLOY_REPO: lusuzi/introspect
         DEPLOY_BRANCH: gh-pages
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones

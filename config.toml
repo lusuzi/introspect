@@ -2,7 +2,7 @@
 # 站点配置
 
 baseURL = "https://lusuzi.github.io/introspect/"
-title = "LuSuZi"
+title = "introspect"
 languageCode = "zh-CN"
 hasCJKLanguage = true
 # 版权信息（支持 Markdown）
@@ -261,16 +261,16 @@ uglyURLs = false
 
 
     ## 链接栏
-    [[menu.links]]
-        url = "/"
-        name = "Home"
-        weight = 1
-        pre = "internal"
-    [[menu.links]]
-        url = "/tags/"
-        name = "Tags"
-        weight = 2
-        pre = "internal"
+    #[[menu.links]]
+    #    url = "/"
+    #    name = "Home"
+    #    weight = 1
+    #    pre = "internal"
+    #[[menu.links]]
+    #    url = "/tags/"
+    #    name = "Tags"
+    #    weight = 2
+    #    pre = "internal"
 
 
 ##########################################
@@ -1059,7 +1059,7 @@ uglyURLs = false
     enablePostUpdatedBadge = true
 
     # 是否显示（全局设置）
-    displayUpdatedBadge = false
+    displayUpdatedBadge = true
     # 说明：文章的 Front Matter 中的 `badge`
     #      的优先级高于此处
 
@@ -1073,10 +1073,10 @@ uglyURLs = false
     # 文章的 Git 版本信息
 
     # 是否开启
-    enablePostGitInfo = false
+    enablePostGitInfo = true
 
     # 是否显示（全局设置）
-    displayPostGitInfo = false
+    displayPostGitInfo = true
     # 说明：文章的 Front Matter 中的 `gitinfo`
     #      的优先级高于此处
 
@@ -1114,7 +1114,7 @@ uglyURLs = false
     # 文章分享
 
     # 是否开启
-    enablePostShare = true
+    enablePostShare = false
 
     # 是否显示（全局设置）
     displayPostShare = false
@@ -1139,7 +1139,7 @@ uglyURLs = false
     # 相关文章
 
     # 是否开启
-    enableRelatedPosts = true
+    enableRelatedPosts = false
 
     # 是否显示（全局设置）
     displayRelatedPosts = false
@@ -1184,8 +1184,8 @@ uglyURLs = false
     # 极简页脚
 
     # 是否开启
-    enableMinimalFooter = true
-    enableVerticalBarStructure = true
+    enableMinimalFooter = false
+    enableVerticalBarStructure = false
     # 说明：如果开启此项，显示在右边的部类或分区
     #      将会包含全部的第一级部类或分区，并且
     #      以竖线（|）分隔开来。
@@ -1239,7 +1239,7 @@ uglyURLs = false
     displayPoweredBy = false
 
     # 是否显示站点的版权信息
-    displaySiteCopyright = true
+    displaySiteCopyright = false
 
     # 自定义页脚（支持 Markdown）
     customFooter = ""
