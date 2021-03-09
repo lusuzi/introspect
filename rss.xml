@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>introspect</title><link>https://lusuzi.github.io/introspect/</link><description>时间。</description><generator>Hugo 0.81.0 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>letter_chat@outlook.com (LuSuZi)</managingEditor><webMaster>letter_chat@outlook.com (LuSuZi)</webMaster><copyright>[署名 非商用 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Wed, 10 Mar 2021 00:29:55 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://lusuzi.github.io/introspect/rss.xml"/><item><title>《深入浅出SQL》学习笔记</title><link>https://lusuzi.github.io/introspect/event/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAsql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><guid isPermaLink="true">https://lusuzi.github.io/introspect/event/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAsql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><pubDate>Mon, 08 Mar 2021 04:45:24 +0800</pubDate><author>letter_chat@outlook.com (LuSuZi)</author><copyright>[署名 非商用 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>1.使用 &lt;code>CREATE DATABASE&lt;/code>语句来创建存储所有表的数据库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">CREATE&lt;/span> &lt;span class="k">DATABASE&lt;/span> &lt;span class="n">website&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>2.使用 &lt;code>USE&lt;/code>语句进入特定数据库，然后才能在里面创建表&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">USE&lt;/span> &lt;span class="n">website&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>3.使用 &lt;code>CREATE TABLE&lt;/code>语句创建表，句中包含列名及其数据类型&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">CREATE&lt;/span> &lt;span class="k">TABLE&lt;/span> &lt;span class="nf">introspect&lt;/span>
+&lt;span class="p">(&lt;/span>
+&lt;span class="n">url&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">title&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">email&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">create_date&lt;/span> &lt;span class="kt">DATE&lt;/span>
+&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>4.使用 &lt;code>DESC&lt;/code>语句检查表的结构&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">DESC&lt;/span> &lt;span class="n">introspect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>5.不可重建已经存在的表或数据库，可以删除然后重建，使用&lt;code>DROP TABLE&lt;/code>语句能删除表，无论表里有无数据&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">DROP&lt;/span> &lt;span class="k">TABLE&lt;/span> &lt;span class="n">introspect&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>6.常用数据格式&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>名称&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>VARCHAR&lt;/td>
+&lt;td>可变长字符串，最大255个字符&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CHAR或CHARACTER&lt;/td>
+&lt;td>固定长字符串，必须是设定好的长度&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INT或INTERGER&lt;/td>
+&lt;td>整数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DEC&lt;/td>
+&lt;td>提供数值空间，直到装满为止&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DATE&lt;/td>
+&lt;td>日期&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DATETIME或TIMESTAMP&lt;/td>
+&lt;td>DATETIME适合存储将来的时间，TIMESTAMP则通常记录当下时刻&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>BLOB&lt;/td>
+&lt;td>大量文本数据&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>7.使用&lt;code>INSERT INTO your_table(column_name1, column_name2, ...) VALUES('value1', 'value2', ...);&lt;/code>来对表插入值，其中字段名与值要一一对应，字符串要用单引号。改变列顺序是可以的；省略列名是可以的，但需要按顺序填入全部列的数据；省略部分列是可以的&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">INSERT&lt;/span> &lt;span class="k">INTO&lt;/span> &lt;span class="nf">introspect&lt;/span>
+&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">title&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">email&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">create_date&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">VALUES&lt;/span>
+&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;lusuzi.github.io/introspect&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;introspect&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;letter_chat@outlook.com&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;2021-03-06&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>8.使用&lt;code>SELECT xxx FROM my_table;&lt;/code>以查看表中的内容，其中*表示筛选所有列，如果要选择某些列，可以用逗号分隔&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">introspect&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">title&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">introspect&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>9.NULL表示未定义的值，只要在创建表时的数据类型后加&lt;code>NOT NULL&lt;/code>就可以把对应列改为不接受NULL，但这样就不允许出现空值，否则会报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">CREATE&lt;/span> &lt;span class="k">TABLE&lt;/span> &lt;span class="nf">introspect&lt;/span>
+&lt;span class="p">(&lt;/span>
+&lt;span class="n">url&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">title&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">email&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">create_date&lt;/span> &lt;span class="kt">DATE&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span>
+&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>10.DEFAULT表示默认值，根在&lt;code>DEFAULT&lt;/code>关键字后的值会在每次新增记录时自动插入表中，只要没有另外指派其他值，当然默认值类型必须和列的类型相同&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">CREATE&lt;/span> &lt;span class="k">TABLE&lt;/span> &lt;span class="nf">introspect&lt;/span>
+&lt;span class="p">(&lt;/span>
+&lt;span class="n">url&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span> &lt;span class="k">DEFAULT&lt;/span> &lt;span class="s1">&amp;#39;lusuzi.github.io/introspect&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">title&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">email&lt;/span> &lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="n">create_date&lt;/span> &lt;span class="kt">DATE&lt;/span> &lt;span class="k">NOT&lt;/span> &lt;span class="no">NULL&lt;/span>
+&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>11.使用&lt;code>WHERE&lt;/code>子句为SELECT提供搜索的特定条件，只会返回符合条件的行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">From&lt;/span> &lt;span class="n">introspect&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">title&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;introspect&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>12.在&lt;code>WHERE&lt;/code>子句用&lt;code>AND&lt;/code>可&lt;strong>并&lt;/strong>多个条件，用&lt;code>OR&lt;/code>可进行&lt;strong>或&lt;/strong>多个条件；用&lt;code>BETWEEN x AND y&lt;/code>来代表区间条件（闭区间），注意顺序很重要，表示从x到y&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">location&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">doughnut_ratings&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;plain glazed&amp;#39;&lt;/span>
+&lt;span class="k">AND&lt;/span>
+&lt;span class="n">rating&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">drink_name&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">drink_info&lt;/span>
+&lt;span class="k">WHERE&lt;/span>
+&lt;span class="n">calories&lt;/span> &lt;span class="k">BETWEEN&lt;/span> &lt;span class="mi">30&lt;/span> &lt;span class="k">AND&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>13.比较符号可以对字符串进行比较，不过是以字母排序，如选出以L开头的所有饮料名字&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">drink_name&lt;/span>
+&lt;span class="k">FROM&lt;/span> &lt;span class="n">drink_info&lt;/span>
+&lt;span class="n">WHRER&lt;/span>
+&lt;span class="n">drink_name&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="s1">&amp;#39;L&amp;#39;&lt;/span>
+&lt;span class="k">AND&lt;/span>
+&lt;span class="n">drink_name&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="s1">&amp;#39;M&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>14.无法直接选出NULL，但可用&lt;code>IS NULL&lt;/code>来选择&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">drink_info&lt;/span>
+&lt;span class="k">FROM&lt;/span> &lt;span class="n">drink_info&lt;/span>
+&lt;span class="k">WHERE&lt;/span>
+&lt;span class="n">calories&lt;/span> &lt;span class="k">IS&lt;/span> &lt;span class="no">NULL&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>15.用&lt;code>LIKE&lt;/code>进行模糊匹配，通配符%可代表&lt;strong>任意数量&lt;/strong>的字符，通配符_代表&lt;strong>一个&lt;/strong>字符&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">first_name&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">my_contacts&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">first_name&lt;/span> &lt;span class="k">LIKE&lt;/span> &lt;span class="s1">&amp;#39;_im&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">my_contacts&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">location&lt;/span> &lt;span class="k">LIKE&lt;/span> &lt;span class="s1">&amp;#39;%CA&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>16.用&lt;code>IN&lt;/code>来进行集合性匹配，反之为&lt;code>NOT IN&lt;/code>（&lt;code>NOT&lt;/code>和可以和&lt;code>BETWEEN&lt;/code>和&lt;code>LIKE&lt;/code>一起使用，不过要将其放&lt;code>WHERE&lt;/code>之后，&lt;code>IN&lt;/code>也可以，不过&lt;code>NOT IN&lt;/code>更常用；与&lt;code>OR&lt;/code>和&lt;code>AND&lt;/code>连用时将&lt;code>NOT&lt;/code>直接放在它们后面）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">date_name&lt;/span>
+&lt;span class="k">FROM&lt;/span> &lt;span class="n">black_book&lt;/span>
+&lt;span class="k">WHERE&lt;/span>
+&lt;span class="n">rating&lt;/span> &lt;span class="k">IN&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;innovative&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;fabulous&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s1">&amp;#39;delightful&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>17.用&lt;code>DELETE&lt;/code>删除符合要求的行，其选择方式几乎与&lt;code>SELECT&lt;/code>完全相同；慎用&lt;code>DELETE&lt;/code>，需确保选择是精确的，必要时先用&lt;code>SELECT&lt;/code>确认一下&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">DELETE&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">clown_info&lt;/span>
+&lt;span class="k">WHERE&lt;/span>
+&lt;span class="n">activities&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;dancing&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>18.删除表中的每一行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">DELETE&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">your_table&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>19.用&lt;code>UPDATE&lt;/code>来更新一行或多行的一列或多列（相当于&lt;code>DELETE&lt;/code>和&lt;code>INSERT&lt;/code>的组合），不加上&lt;code>WHERE&lt;/code>就会为每一列都更改&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">UPDATE&lt;/span> &lt;span class="n">doughtnut_ratings&lt;/span>
+&lt;span class="kt">SET&lt;/span> &lt;span class="n">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;glazed&amp;#39;&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;plain glazed&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">UPDATE&lt;/span> &lt;span class="n">your_table&lt;/span>
+&lt;span class="kt">SET&lt;/span> &lt;span class="n">first_column&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;new_value&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">second_column&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;another_value&amp;#39;&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">A&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>20.&lt;code>UPDATE&lt;/code>中的&lt;code>SET&lt;/code>可以进行基础的数学运算&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="k">UPDATE&lt;/span> &lt;span class="n">drink_info&lt;/span>
+&lt;span class="kt">SET&lt;/span> &lt;span class="n">cost&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">cost&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="mi">1&lt;/span>
+&lt;span class="k">WHERE&lt;/span> &lt;span class="n">drink_name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;BlueBerry&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>注意事项：&lt;/p>
+&lt;ol>
+&lt;li>如果数字与字符型数字比较，字符型数字会被强制转化为数字进行比较&lt;/li>
+&lt;li>在SQL中不要使用双引号&lt;/li>
+&lt;li>SQL中转义有两种方式，如在单引号前加\，或者再加一个单引号&lt;/li>
+&lt;li>SQL的等号是'='，不等号是'&amp;lt;&amp;gt;'&lt;/li>
+&lt;/ol>
+&lt;/blockquote></description><category domain="https://lusuzi.github.io/introspect/event/">event</category></item><item><title>《精益数据分析》读书笔记</title><link>https://lusuzi.github.io/introspect/event/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link><guid isPermaLink="true">https://lusuzi.github.io/introspect/event/%E7%B2%BE%E7%9B%8A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid><pubDate>Sun, 07 Mar 2021 12:16:10 +0800</pubDate><author>letter_chat@outlook.com (LuSuZi)</author><copyright>[署名 非商用 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;h3 id="什么是好的数据指标">什么是好的数据指标？&lt;/h3>
+&lt;p>好的数据指标简单易懂、常是个比率，对目标具有直接的揭示效果，能够直接用于指导行动。&lt;/p>
+&lt;h3 id="什么是虚荣指标如何规避它">什么是虚荣指标，如何规避它？&lt;/h3>
+&lt;p>虚荣指标指的是那些与指导行动无关的，基本只能满足虚荣心的指标，如总注册用户数等。&lt;/p>
+&lt;p>要审视自己的指标系统能够直接用于指导行动，如问问总注册用户数增加能代表什么？ 增加了说明了什么?能不能指导行动？等。&lt;/p>
+&lt;h3 id="指标区别">指标区别&lt;/h3>
+&lt;p>定性指标没有量化，是经验的、揭示性的、难以归类的；定量指标是量化的，涉及数值与数据，提供可量化的结果。&lt;/p>
+&lt;p>先见性指标可用于预测，后见性指标只能用于解释。&lt;/p>
+&lt;p>探索性指标指的是“我们不知道我们不知道”的那部分，属于推测性指标；而报告性指标则是实时的，与日常运营步调一致。&lt;/p>
+&lt;p>相关性指标揭示事物间的相关性，指的是两个指标总是同一变化，但相关性不等于因果性，因果性指标则揭示事物间的因果性，其中一个指标能导致另一指标发生变化。&lt;/p>
+&lt;h3 id="什么是ab测试为什么多变量测试更常用">什么是A/B测试？为什么多变量测试更常用？&lt;/h3>
+&lt;p>A/B测试指的是假设其他条件不变，仅考虑某一属性对被试用户的影响。&lt;/p>
+&lt;p>这往往需要很大的用户量，如果没有，将要连续地测试很多变量，会很缓慢。&lt;/p>
+&lt;p>而采用多变量测试能同时对多个变量进行测试，原理为用统计学方法剥离单个影响因子对结果中某一项指标提升的相关性。&lt;/p>
+&lt;h3 id="细分市场和同期群之间的区别">细分市场和同期群之间的区别？&lt;/h3>
+&lt;p>细分市场比较的是不同群体之间的区别，而同期群分析比较的是同一群体不同时间上的区别。&lt;/p>
+&lt;h3 id="创业职业选择">创业/职业选择&lt;/h3>
+&lt;p>&lt;img src="../images/career.jpg" alt="">&lt;/p>
+&lt;h3 id="精益画布">精益画布&lt;/h3>
+&lt;p>&lt;a href="https://leanstack.com/lean-canvas">Lean Canvas | LEANSTACK&lt;/a>&lt;/p>
+&lt;p>既要重视数据，也要注意数据驱动的缺陷。&lt;/p></description><category domain="https://lusuzi.github.io/introspect/event/">event</category></item><item><title>《商业数据分析入门》笔记</title><link>https://lusuzi.github.io/introspect/event/%E5%95%86%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link><guid isPermaLink="true">https://lusuzi.github.io/introspect/event/%E5%95%86%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid><pubDate>Sun, 07 Mar 2021 10:02:07 +0800</pubDate><author>letter_chat@outlook.com (LuSuZi)</author><copyright>[署名 非商用 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;h3 id="什么是数据分析">什么是数据分析？&lt;/h3>
+&lt;p>数据分析在具体商业应用上是根据&lt;strong>业务问题&lt;/strong>，对数据进行收集、清洗、处理和建模的过程，&lt;strong>以帮助企业盈利&lt;/strong>。明确目的很重要，最终结果是要想方设法为企业盈利的，这也正是数据分析的价值所在。&lt;/p>
+&lt;p>以传统销售企业为例，提高企业盈利水平无非从提高营业收入和降低营业成本，在提高营业收入上，可以从提高销售量、提高单用户购买金额等，从降低营业水平上，可以从降低库存、降低广告浪费等上。以互联网企业为例，提高企业盈利水平可以从提高用户数量和留存率入手。种种这些，都可以通过数据分析使我们做得更好。&lt;/p>
+&lt;p>如今，虽然大部分公司只是从传统公司变成“重视数据的公司”，还谈不上“数据驱动的公司”，数据分析师的职能，是帮助这些“重视数据的公司”转变为“数据驱动的公司”。在现在硬盘存储数据成本低、用户积累了大量的数据下，能否将数据用上以帮助企业盈利将直接决定着企业的竞争力。&lt;/p>
+&lt;h3 id="数据分析的工作流程">数据分析的工作流程&lt;/h3>
+&lt;p>完整框架为：界定问题 --&amp;gt; 数据收集（与评估） --&amp;gt; 数据清洗（与整理） --&amp;gt; 数据（探索与）可视化 --&amp;gt; 数据建模&lt;/p>
+&lt;p>但实际问题上，不一定按顺序执行，中间往往会跳转，也不一定会完整走完流程，比如一般是明确了问题之后才数据分析的。&lt;/p>
+&lt;h4 id="界定问题">界定问题&lt;/h4>
+&lt;p>在“界定问题”这个步骤中，最重要的是明确What, Why, How。&lt;/p>
+&lt;p>What类问题通常是和企业具体指标联系在一起的，如什么指标有问题？&lt;/p>
+&lt;p>What类问题的解决办法通常是从企业现有数据库中抽取并处理数据为主，也有可能需要自己进行数据收集，交付方式通常用Excel或Tableau可视化报表。&lt;/p>
+&lt;p>Why类问题则探索What类问题的原因，如为什么销售额低？&lt;/p>
+&lt;p>Why类问题的解决办法是需要在数据中找出洞见，在What类问题提供的数据的基础上提供简单的探索和分析，交付方式通常用PPT或撰写报告。&lt;/p>
+&lt;p>How类问题则提供解决办法，如怎样提高销手额？&lt;/p>
+&lt;p>How类问题需要提供相应分析模型解决实际业务问题，交付方式通常为最终的模型结论和实施方案。&lt;/p>
+&lt;h4 id="数据收集">数据收集&lt;/h4>
+&lt;p>广义的数据收集指的是企业层面收集数据并整理进数据库的过程，我们主要指的是狭义的数据收集，即从企业数据库中抽取、拼接和聚合数据的过程。&lt;/p>
+&lt;p>数据分析师主要面对的是企业关系型数据库，即有多个数据表组成的数据库。在关系型数据库中操作数据用到是SQL语言，不管是MySQL还是Oracle，都是差不多的。如果数据量大，一般的做法是对数据进行抽样，进行分析建模并评估效果后再运用到全体数据上。在数据拼接中，一般要避免多对多的关系，以防止数据混乱。数据聚合通常依赖于分析师的工作经验也依赖于行业通用的分析框架。&lt;/p>
+&lt;p>数据评估主要分为两大块，一是在数据源对数据完整性和及时性进行评估，数据完整性的评估可通过观察数据是否符合业务常识进行，如企业销手额确定性地为多少，数据源的对应数据就应该是这个水平。及时性则指的是数据统计时间不应该距离具体应用时间太远以及统计时间应该一致。二是对汇总数据的准确性和一致性进行评估，以检查SQL语句处理数据产生的问题。&lt;/p>
+&lt;p>在这两步的基础上，我们还应对数据质量进行变量级别的评估检查。也就是进入第三步：数据清洗。&lt;/p>
+&lt;h4 id="数据清洗">数据清洗&lt;/h4>
+&lt;p>清洗涉及对数据缺失、异常和其他问题的处理，这将占到整个数据分析60%-80%的时间。整理涉及将数据整理成有利于后续分析的样式。&lt;/p>
+&lt;p>&lt;strong>缺失&lt;/strong>&lt;/p>
+&lt;p>数据缺失司空见惯，如果发现，第一步问的问题是：缺失的数据来源于哪个表？这在原表中也是缺失的吗？目的是排除SQL查询时产生的错误。如果没有，是否是收集数据的疏漏？如果没有，是否是数据录用时的问题？&lt;/p>
+&lt;p>如果确实存在确实，我们应该问缺失比例是多少？如果超过90%则过多，难以提供有效的信息，可考虑删除。如果有限，可考虑用中位数或回归的方式填充。&lt;/p>
+&lt;p>&lt;strong>异常&lt;/strong>&lt;/p>
+&lt;p>1.不符合常识的&lt;/p>
+&lt;p>2.离群值&lt;/p>
+&lt;p>3.是否为缺省值或随手乱填&lt;/p>
+&lt;p>数据整理包括对数据命名取值的规范化处理，对某些信息进行重新编码以满足后续需求等。例如统一化命名、将时间变量进行再编码等。&lt;/p>
+&lt;h4 id="数据可视化">数据可视化&lt;/h4>
+&lt;p>数据探索依赖于我们的统计经验、可视化工具和业务知识。&lt;/p>
+&lt;p>累积分布图&lt;/p>
+&lt;p>热力图-相关系数&lt;/p>
+&lt;p>寻找多维度的衍生变量&lt;/p>
+&lt;p>桑基图&lt;/p>
+&lt;p>基于地图的可视化&lt;/p>
+&lt;h4 id="数据建模">数据建模&lt;/h4>
+&lt;p>数据分析模型是对数据分析中各种规律的抽象总结。&lt;/p>
+&lt;p>数据建模主要解决客户&lt;strong>分群&lt;/strong>和&lt;strong>预测&lt;/strong>分类的问题。&lt;/p>
+&lt;p>建模之后需要将模型建立在业务上。&lt;/p></description><category domain="https://lusuzi.github.io/introspect/event/">event</category></item><item><title>3月份时间统计 &amp;697</title><link>https://lusuzi.github.io/introspect/time/202103/</link><guid isPermaLink="true">https://lusuzi.github.io/introspect/time/202103/</guid><pubDate>Sat, 06 Mar 2021 19:06:31 +0800</pubDate><author>letter_chat@outlook.com (LuSuZi)</author><copyright>[署名 非商用 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;h3 id="3月7日-20905">3月7日 #20905&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>事项&lt;/th>
+&lt;th>时间&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>工作-《商业数据分析入门》视频课程&lt;/td>
+&lt;td>2时4分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>工作-阅读《精益数据分析》第1-4章&lt;/td>
+&lt;td>1时37分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>中文阅读-阅读完《时间的秩序》剩余部分&lt;/td>
+&lt;td>2时2分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>跑步3.17公里&lt;/td>
+&lt;td>20分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>冥想&lt;/td>
+&lt;td>15分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>总结与规划&lt;/td>
+&lt;td>23分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>共计&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>6时41分&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="周总结-2987">周总结 @2987&lt;/h3>
+&lt;p>以后将周日作为时间统计的周总结日，同时也是下周任务的规划日。&lt;/p>
+&lt;h3 id="3月8日-20904">3月8日 #20904&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>事项&lt;/th>
+&lt;th>时间&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>工作-《SQL语言入门》视频课程&lt;/td>
+&lt;td>1时21分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>工作-学习《深入浅出SQL》1-3章&lt;/td>
+&lt;td>4时11分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>冥想&lt;/td>
+&lt;td>15分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>总结与规划&lt;/td>
+&lt;td>35分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>共计&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>6时22分&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="3月9日-20903">3月9日 #20903&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>事项&lt;/th>
+&lt;th>时间&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>中文阅读-阅读《洞见》&lt;/td>
+&lt;td>50分&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>共计&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>0时50分&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><category domain="https://lusuzi.github.io/introspect/time/">time</category></item></channel></rss>
